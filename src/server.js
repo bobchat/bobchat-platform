@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
 const userRoutes = require('./routes/user-routes');
+const roomRoutes = require('./routes/room-routes');
+
 const PORT = process.env.PORT || 8080;
 const MONGO_URI = 'mongodb://localhost:27017'
 const app = express();
@@ -20,6 +22,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 mongoose.connect(MONGO_URI);
 
 app.use('/user', userRoutes);
+app.use('/room', roomRoutes);
 
 let server = {
   run: () => {
