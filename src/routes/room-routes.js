@@ -28,8 +28,6 @@ roomRoutes.post('/new', json, async (req, res) => {
 
   const params = Joi.validate(req.body, schema);
 
-  console.log(JSON.stringify(params.error));
-
   if (params.error) {
     return res.status(500).json({
       error: params.error
