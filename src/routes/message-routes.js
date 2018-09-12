@@ -5,12 +5,11 @@ const Joi = require("joi");
 const roomRoutes = (module.exports = exports = express.Router());
 
 roomRoutes.get("/list/:room", async (req, res) => {
+  console.log(`List messages for room ${req.params.room}`);
   const schema = Joi.object().keys({
     room: Joi.string().alphanum().min(24).max(24).required(),
   });
 
-
-  console.log(req.params);
   const params = Joi.validate(req.params, schema);
 
   if (params.error) {
