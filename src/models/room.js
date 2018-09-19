@@ -3,31 +3,44 @@ const mongoose = require("mongoose");
 const roomSchema = mongoose.Schema({
   title: {
     type: String,
-    required: true,
+    required: true
+  },
+  geo: {
+    coordinates: Array,
+    radius: Number,
+    units: String
+  },
+  location: {
+    type: {
+      type: String,
+    },
+    coordinates: {
+      type: Array,
+    }
   },
   created: {
     type: Date,
-    required: true,
+    required: true
   },
   owner: {
     type: String,
-    required: true,
+    required: true
   },
   upvoteCount: {
     type: Number,
     required: true,
-    default: 0,
+    default: 0
   },
   downvoteCount: {
     type: Number,
     required: true,
-    default: 0,
+    default: 0
   },
   flagged: {
     type: Boolean,
     required: true,
-    default: false,
-  },
+    default: false
+  }
 });
 
 class Room {

@@ -1,9 +1,19 @@
 const mongoose = require("mongoose");
+const circleToPolygon = require('circle-to-polygon');
 
 const messageSchema = mongoose.Schema({
   content: {
     type: String,
     required: true
+  },
+  geo: {
+    location: Array,
+    radius: Number,
+    units: String,
+  },
+  location: {
+    type: String,
+    coordinates: Array
   },
   created: {
     type: Date,
@@ -15,7 +25,7 @@ const messageSchema = mongoose.Schema({
   },
   room: {
     type: String,
-    required: true,
+    required: true
   },
   upvoteCount: {
     type: Number,

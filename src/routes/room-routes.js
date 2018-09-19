@@ -1,6 +1,7 @@
 const express = require('express');
 const json = require('body-parser').json();
 const Room = require('./../models/room');
+const { createRoom } = require('./../models/creators/createRoom');
 const Joi = require('joi');
 
 const roomRoutes = module.exports = exports = express.Router();
@@ -24,6 +25,9 @@ roomRoutes.post('/new', json, async (req, res) => {
   const schema = Joi.object().keys({
     title: Joi.string().min(1).max(280).required(),
     owner: Joi.string().alphanum().min(24).max(24).required(),
+    coordinates: Joi.array().required(),
+    radius: Joi.number(),
+    units: Joi.string().required(),
   });
 
   const params = Joi.validate(req.body, schema);
@@ -36,17 +40,14 @@ roomRoutes.post('/new', json, async (req, res) => {
 
   const {
     title,
-    owner
+    owner,
+    coordinates,
+    radius,
+    units,
   } = params.value;
 
-
-  const newRoom = new Room();
-  newRoom.title = title;
-  newRoom.created = new Date(Date.now());
-  newRoom.owner = owner;
-
   try {
-    const room = await newRoom.save();
+    const room = await createRoom(title, owner, coordinates, radius, units);
     res.status(200).json({
       room,
     });
