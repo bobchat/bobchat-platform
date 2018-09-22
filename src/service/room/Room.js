@@ -32,7 +32,7 @@ const roomSchema = mongoose.Schema({
   alias: {
     type: String,
     required: false,
-    default: ""
+    default: null
   },
   ownerId: {
     type: String,
@@ -60,6 +60,27 @@ const roomSchema = mongoose.Schema({
     type: Boolean,
     required: true,
     default: false
+  },
+  // Private Room Fields
+  isPrivate: {
+    type: Boolean,
+    required: true,
+    default: false
+  },
+  senderId: {
+    type: String,
+    required: false,
+    default: null
+  },
+  senderAlias: {
+    type: String,
+    required: false,
+    default: null
+  },
+  parentRoomId: {
+    type: String,
+    required: false,
+    default: null
   }
 });
 

@@ -10,7 +10,7 @@ roomRoutes.get('/list', async (req, res) => {
   let {lat, lng, radius, units} = req.query;
 
   try {
-    let rooms = await roomStore.listRooms(lat, lng, radius, units);
+    let rooms = await roomStore.listPublicRoomsWithinRadius(lat, lng, radius, units);
     res.status(200).json({
       rooms,
     });

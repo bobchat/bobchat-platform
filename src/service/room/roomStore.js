@@ -36,8 +36,14 @@ class RoomStore {
       throw e;
     }
   }
-
-  async listRooms(lat, lng, radius, units) {
+  async getRoomById(roomId){
+    try {
+      return await Room.findById(roomId);
+    } catch (e) {
+      throw e;
+    }
+  }
+  async listPublicRoomsWithinRadius(lat, lng, radius, units) {
     let geo = {
       type: 'Point',
       coordinates: [lng, lat],
@@ -45,6 +51,7 @@ class RoomStore {
 
     try {
       let rooms = await Room.find({
+        isPrivate: false,
         geo: {
           $geoIntersects: {
             $geometry: geo,
@@ -55,6 +62,35 @@ class RoomStore {
     } catch (e) {
       throw e;
     }
+  }
+
+  async createPrivateRoom(
+    senderId = '',
+    senderAlias = '',
+    parentRoomId = '',
+  ){
+    const now = Date.now();
+    const room = new Room();
+    const parentRoom = this.getRoomById(parentRoomId);
+
+    room.title = parentRoom.title;
+    room.ownerId = parentRoom.ownerId;
+    room.alias = parentRoom.alias;
+    room.created = new Date(now);
+    room.expires = parentRoom.expires;
+    room.location = parentRoom.locatio;
+    room.geo = parentRoom.geo;
+    // Private Room Fields
+    room.isPrivate = true;
+    room.senderId = senderId;
+    room.senderAlias = senderAlias;
+    room.parentRoomId = parentRoomId;
+  
+    try {
+      return await room.save();
+    } catch (e) {
+      throw e;
+    }  
   }
 }
 
