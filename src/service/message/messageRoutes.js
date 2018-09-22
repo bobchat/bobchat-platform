@@ -1,5 +1,5 @@
 const express = require("express");
-const Message = require("./../models/message");
+const Message = require('./Message');
 const Joi = require("joi");
 
 const roomRoutes = (module.exports = exports = express.Router());

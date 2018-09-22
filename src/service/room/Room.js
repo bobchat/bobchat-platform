@@ -5,25 +5,45 @@ const roomSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  geo: {
-    coordinates: Array,
+  // Human Readble values for availability cirlce
+  location: {
+    coords: {
+      accuracy: Number,
+      altitude: Number,
+      altitudeAccuracy: Number,
+      heading: Number,
+      latitude: Number,
+      longitude: Number,
+      speed: Number
+    },
+    timestamp: Date,
     radius: Number,
     units: String
   },
-  location: {
+  // GeoJSON values for availability cirlce
+  geo: {
     type: {
-      type: String,
+      type: String // Polygon
     },
     coordinates: {
-      type: Array,
+      type: Array // [lng, lat]
     }
+  },
+  alias: {
+    type: String,
+    required: false,
+    default: ""
+  },
+  ownerId: {
+    type: String,
+    required: true
   },
   created: {
     type: Date,
     required: true
   },
-  owner: {
-    type: String,
+  expires: {
+    type: Date,
     required: true
   },
   upvoteCount: {
@@ -43,9 +63,7 @@ const roomSchema = mongoose.Schema({
   }
 });
 
-class Room {
-
-}
+class Room {}
 
 roomSchema.loadClass(Room);
 

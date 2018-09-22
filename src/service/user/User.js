@@ -3,32 +3,33 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const userSchema = mongoose.Schema({
+  deviceUniqueId: {
+    type: String,
+    required: false
+  },
   username: {
     type: String,
-    required: true
+    required: false,
   },
   created: {
     type: Date,
-    required: true
+    required: true,
   },
-  phoneNumber: {
-    type: String,
-    required: true
-  },
-  phoneNumberVerifiedAt: {
-    type: Date,
-    default: null,
-    required: false
+  phone: {
+    phoneNumber: {
+      type: String,
+      default: '',
+      required: false,
+    },
+    phoneNumberVerifiedAt: {
+      type: Date,
+      default: null,
+      required: false,  
+    }
   }
 });
 
 class User {
-  hashPassword() {
-    this.password = bcrypt.hashSync(password, 8);
-  }
-  comparePassword(password) {
-    return bcrypt.compareSync(password, this.password);
-  }
   generateToken() {
     return jwt.sign(
       {

@@ -2,9 +2,9 @@ const http = require('http');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
-const userRoutes = require('./routes/user-routes');
-const roomRoutes = require('./routes/room-routes');
-const messageRoutes = require("./routes/message-routes");
+const userRoutes = require("./service/user/userRoutes");
+const roomRoutes = require('./service/room/roomRoutes');
+const messageRoutes = require("./service/message/messageRoutes");
 const MONGO_URI = 'mongodb://localhost:27017'
 const app = express();
 
@@ -23,6 +23,6 @@ mongoose.connect(MONGO_URI);
 
 app.use('/user', userRoutes);
 app.use('/room', roomRoutes);
-app.use("/message", messageRoutes);
+app.use('/message', messageRoutes);
 
 module.exports = exports = http.createServer(app);

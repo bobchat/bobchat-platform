@@ -1,4 +1,4 @@
-const Message = require('./models/message');
+const Message = require('./service/message/Message');
 const Joi = require("joi");
 
 module.exports = function(server) {
