@@ -1,10 +1,7 @@
 const express = require('express');
 const userStore = require("./userStore");
 const Joi = require('joi');
-
-console.log(userStore);
 const userRoutes = module.exports = exports = express.Router();
-
 
 userRoutes.get('/token', async (req, res) => {
   const schema = Joi.object().keys({
@@ -25,7 +22,6 @@ userRoutes.get('/token', async (req, res) => {
 
   try {
     const user = await userStore.loginOrCreateUser(deviceUniqueId);
-    console.log(user);
     const token = user.generateToken();
     res.status(200).json({
       user,
@@ -38,5 +34,4 @@ userRoutes.get('/token', async (req, res) => {
       error: e
     });
   }
-
 });

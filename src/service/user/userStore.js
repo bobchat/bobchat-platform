@@ -14,6 +14,15 @@ class UserStore {
     }
   }
 
+  async findById(userId){
+    try {
+      return await User.findById(userId);
+    } catch(e) {
+      console.error(e);
+      throw e;
+    }
+  }
+
   async loginOrCreateUser(deviceUniqueId = "") {
     let user;
     try {

@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const userSchema = mongoose.Schema({
@@ -9,22 +8,22 @@ const userSchema = mongoose.Schema({
   },
   username: {
     type: String,
-    required: false,
+    required: false
   },
   created: {
     type: Date,
-    required: true,
+    required: true
   },
   phone: {
     phoneNumber: {
       type: String,
-      default: '',
-      required: false,
+      default: "",
+      required: false
     },
     phoneNumberVerifiedAt: {
       type: Date,
       default: null,
-      required: false,  
+      required: false
     }
   }
 });

@@ -2,9 +2,9 @@ const express = require('express');
 const json = require('body-parser').json();
 const roomStore = require('./roomStore');
 const Joi = require('joi');
+const tokenMiddleware = require("./../../util/tokenMiddleware");
 
 const roomRoutes = module.exports = exports = express.Router();
-
 
 roomRoutes.get('/list', async (req, res) => {
   let {lat, lng, radius, units} = req.query;
@@ -58,5 +58,30 @@ roomRoutes.post('/new', json, async (req, res) => {
     res.status(500).json({
       error: e
     });
+  }
+});
+
+roomRoutes.post("/up-vote", tokenMiddleware, json, async (req, res) => {
+  let roomId = req.body.roomId;
+  let { _id } = req.user;
+  try {
+    let room = await roomStore.upVoteRoom(roomId, _id.toString());
+    res.status(200).json({ room });
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: e });
+  }
+});
+
+
+roomRoutes.post('/down-vote', tokenMiddleware, json, async (req, res) => {
+  let roomId = req.body.roomId;
+  let { _id } = req.user;
+  try {
+    let room = await roomStore.downVoteRoom(roomId, _id.toString());
+    res.status(200).json({ room });
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: e });
   }
 });

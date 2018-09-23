@@ -36,7 +36,7 @@ class RoomStore {
       throw e;
     }
   }
-  async getRoomById(roomId){
+  async findById(roomId){
     try {
       return await Room.findById(roomId);
     } catch (e) {
@@ -71,7 +71,7 @@ class RoomStore {
   ){
     const now = Date.now();
     const room = new Room();
-    const parentRoom = this.getRoomById(parentRoomId);
+    const parentRoom = this.findById(parentRoomId);
 
     room.title = parentRoom.title;
     room.ownerId = parentRoom.ownerId;
@@ -91,6 +91,46 @@ class RoomStore {
     } catch (e) {
       throw e;
     }  
+  }
+  // Voting
+  async upVoteRoom(roomId, userId){
+    let room = await this.findById(roomId);
+    let isUpVoted = room.upVoteUserIds.includes(userId.toString());
+    if(isUpVoted) return room;
+
+    let isDownVoted = room.downVoteUserIds.includes(userId);
+    let query = isDownVoted ? {
+      $pull: { downVoteUserIds: userId }
+    } : {
+      $push: { upVoteUserIds: userId }
+    };
+
+   try {
+    return await Room.findByIdAndUpdate(roomId, query)
+   } catch(e) {
+     throw e;
+   }
+  }
+
+  async downVoteRoom(roomId, userId){
+    let room = await this.findById(roomId);
+    let isDownVoted = room.downVoteUserIds.includes(userId);
+    if (isDownVoted) {
+      return room;
+    }
+
+    let isUpVoted = room.upVoteUserIds.includes(userId);
+    let query = isUpVoted ? {
+      $pull: { upVoteUserIds: userId }
+    } : {
+        $push: { downVoteUserIds: userId }
+      };
+
+    try {
+      return await Room.findByIdAndUpdate(roomId, query)
+    } catch (e) {
+      throw e;
+    }
   }
 }
 

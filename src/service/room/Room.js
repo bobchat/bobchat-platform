@@ -46,15 +46,15 @@ const roomSchema = mongoose.Schema({
     type: Date,
     required: true
   },
-  upvoteCount: {
-    type: Number,
+  upVoteUserIds: {
+    type: Array,
     required: true,
-    default: 0
+    default: []
   },
-  downvoteCount: {
-    type: Number,
+  downVoteUserIds: {
+    type: Array,
     required: true,
-    default: 0
+    default: []
   },
   flagged: {
     type: Boolean,
