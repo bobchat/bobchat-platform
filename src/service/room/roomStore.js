@@ -64,6 +64,21 @@ class RoomStore {
     }
   }
 
+  async listPrivateRoomsForUser(userId) {
+    try {
+      return await Room.find({
+        isPrivate: true,
+        $or: [{
+          ownerId: userId,
+        }, {
+          senderId: userId,
+        }]
+      }).sort({created: -1});
+    } catch(e) {
+      throw e;
+    }
+  }
+
   async createPrivateRoom(
     senderId = '',
     senderAlias = '',

@@ -22,6 +22,22 @@ roomRoutes.get('/list', async (req, res) => {
   }
 });
 
+
+roomRoutes.get('/list/private', tokenMiddleware, async (req, res) => {
+  let { _id } = req.user;
+  try {
+    let rooms = await roomStore.listPrivateRoomsForUser(_id);
+    res.status(200).json({
+      rooms,
+    });
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({
+      error: e
+    });
+  }
+});
+
 roomRoutes.post('/new', json, async (req, res) => {
   // const schema = Joi.object().keys({
   //   title: Joi.string().min(1).max(280).required(),
@@ -58,6 +74,19 @@ roomRoutes.post('/new', json, async (req, res) => {
     res.status(500).json({
       error: e
     });
+  }
+});
+
+roomRoutes.post('/new/private', json, async () => {
+  let { senderId, senderAlias, parentRoomId } = req.body;
+  try {
+    const room = await roomStore.createPrivateRoom(senderId, senderAlias, parentRoomId);
+    res.status(200).json({
+      room,
+    });
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: e });
   }
 });
 
