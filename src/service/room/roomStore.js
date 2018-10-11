@@ -86,7 +86,7 @@ class RoomStore {
   ){
     const now = Date.now();
     const room = new Room();
-    const parentRoom = this.findById(parentRoomId);
+    const parentRoom = await this.findById(parentRoomId);
 
     room.title = parentRoom.title;
     room.ownerId = parentRoom.ownerId;

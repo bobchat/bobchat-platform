@@ -6,9 +6,8 @@ module.exports = function(server) {
   io.on('connection', function (socket) {
 
     socket.on('room', params => {
-      let room = params.room;
-      console.log(`Join room ${room._id}`);
-      socket.join(room._id);
+      console.log(`Join room ${params.roomId}`);
+      socket.join(params.roomId);
     });
 
     socket.on('message', async data => {
