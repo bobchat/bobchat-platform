@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const userRoutes = require("./service/user/userRoutes");
 const roomRoutes = require('./service/room/roomRoutes');
 const messageRoutes = require("./service/message/messageRoutes");
-const MONGO_URI = 'mongodb://localhost:27017'
+const MONGO_URI = require('./util/getMongoHost')();
 const app = express();
 
 app.use((req, res, next) => {

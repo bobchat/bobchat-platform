@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
+const {
+  TOKEN_SECRET,
+} = require('./../../../env');
 
 const userSchema = mongoose.Schema({
   deviceUniqueId: {
@@ -34,7 +37,7 @@ class User {
       {
         id: this._id
       },
-      process.env.TOKEN_SECRET || "CHANGE_ME"
+      TOKEN_SECRET,
     );
   }
 }

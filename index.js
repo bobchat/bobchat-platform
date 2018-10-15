@@ -1,7 +1,9 @@
 const server = require('./src/server');
 const websocket = require('./src/websockets')(server);
-const PORT = process.env.PORT || 8080;
+const {
+  HTTP_PORT
+} = require('./env');
 
-server.listen(PORT, () => {
-  console.log(`Server live on port ${PORT}`);
+server.listen(HTTP_PORT, () => {
+  console.log(`Server live on port ${HTTP_PORT}`);
 });

@@ -5,7 +5,7 @@ const userRoutes = module.exports = exports = express.Router();
 
 userRoutes.get('/token', async (req, res) => {
   const schema = Joi.object().keys({
-    deviceUniqueId: Joi.string().alphanum().min(0).max(16).required(),
+    deviceUniqueId: Joi.string().required(),
   });
 
   const params = Joi.validate(req.query, schema);
@@ -27,7 +27,6 @@ userRoutes.get('/token', async (req, res) => {
       user,
       token,
     });
-
   } catch (e) {
     console.error(e);
     res.status(500).json({

@@ -1,0 +1,11 @@
+name: users
+home: https://github.com/dfs-activedisclosure/auth-dfs
+version: 0.1.0
+description: DFS User Services
+sources:
+  - https://github.com/dfs-activedisclosure/auth-dfs
+maintainers:
+  - name: Sam Heutmaker
+    email: sam.heutmaker@dfsco.com
+  - name: Tom Canham
+    email: tom.canham@dfsco.com

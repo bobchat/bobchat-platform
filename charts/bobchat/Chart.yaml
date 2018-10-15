@@ -1,0 +1,10 @@
+name: bobchat-platform
+home: https://github.com/bobchat/bobchat-platform
+version: 0.1.0
+description: BobChat Platform
+sources:
+  - https://github.com/bobchat/bobchat-platform
+maintainers:
+  - name: Sam Heutmaker
+    email: samheutmaker@gmail.com
+

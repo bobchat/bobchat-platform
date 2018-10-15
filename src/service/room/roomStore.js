@@ -44,6 +44,7 @@ class RoomStore {
     }
   }
   async listPublicRoomsWithinRadius(lat, lng, radius, units) {
+    
     let geo = {
       type: 'Point',
       coordinates: [lng, lat],
