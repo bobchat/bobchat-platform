@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "users.fullname" . }}
+  name: {{ template "bobchat-platform.fullname" . }}
   labels:
     heritage: {{.Release.Service | quote }}
     release: {{.Release.Name | quote }}
@@ -10,7 +10,7 @@ metadata:
 {{- if .Values.serviceAnnotations}}
   annotations:
 {{ toYaml .Values.serviceAnnotations | indent 4 }}
-      service: {{ .Release.Name }}-users.identity:80
+      service: {{ .Release.Name }}-bobchat-platform.default:80
 {{- end}}
 spec:
   ports:
@@ -25,7 +25,7 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{ template "users.fullname" . }}
+  name: {{ template "bobchat-platform.fullname" . }}
   labels:
     heritage: {{.Release.Service | quote }}
     release: {{.Release.Name | quote }}
@@ -66,7 +66,7 @@ spec:
             - name: NODE_ENV
               value: {{ default "" .Values.env.NODE_ENV | quote }}
             - name: MONGO_DB_HOST
-              value: "{{ .Release.Name }}-mongodb.identity.svc.cluster.local"
+              value: "{{ .Release.Name }}-mongodb.default.svc.cluster.local"
             - name: MONGO_DB_PORT
               value: {{ default "" .Values.env.MONGO_DB_PORT | quote}}
             - name: MONGO_DB_NAME

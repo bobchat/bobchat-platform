@@ -1,11 +1,9 @@
-name: users
-home: https://github.com/dfs-activedisclosure/auth-dfs
+name: bobchat-platform
+home: https://github.com/bobchat/bobchat-platform
 version: 0.1.0
-description: DFS User Services
+description: Bobchat Platform
 sources:
-  - https://github.com/dfs-activedisclosure/auth-dfs
+  - https://github.com/bobchat/bobchat-platform
 maintainers:
   - name: Sam Heutmaker
     email: sam.heutmaker@dfsco.com
-  - name: Tom Canham
-    email: tom.canham@dfsco.com
