@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:10.11.0
 
 # make source directory
 CMD mkdir /app
