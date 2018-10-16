@@ -20,7 +20,7 @@ env:
   # MONGO_DB_NAME: 'mongo-test'
   # MONGO_DB_DATABASE: 'admin'
   # MONGO_DB_USER: 'root
-  REDIS_HOST: 'mongodb.default.svc.cluster.local'
+  REDIS_HOST: 'redis.default.svc.cluster.local'
   REDIS_PORT: '6379'
   
 # Service
