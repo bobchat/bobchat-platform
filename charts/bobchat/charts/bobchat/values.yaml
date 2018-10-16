@@ -1,6 +1,6 @@
 # Shared
 name: "bobchat-platform"
-containerPort: 3000
+containerPort: 8080
 component: "bobchat-platform"
 # Deployment
 image: "gcr.io/bobchat-app/bobchat-platform"
