@@ -1,8 +1,20 @@
 const Message = require('./service/message/Message');
 const Joi = require("joi");
+const redisAdapter = require("socket.io-redis");
+const {
+  REDIS_HOST,
+  REDIS_PORT
+} = require('./../env');
+
 
 module.exports = function(server) {
   let io = require('socket.io')(server);
+
+  io.adapter(redisAdapter({
+    host: REDIS_HOST,
+    port: REDIS_PORT,
+  }));
+
   io.on('connection', function (socket) {
 
     socket.on('room', params => {

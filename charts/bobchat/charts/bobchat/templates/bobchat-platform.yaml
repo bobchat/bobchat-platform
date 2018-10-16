@@ -77,3 +77,7 @@ spec:
               value: {{ default "" .Values.env.MONGO_DB_USER | quote}}
             - name: MONGO_DB_PASSWORD
               value: {{ default "" .Values.env.MONGO_DB_PASSWORD | quote}}
+            - name: REDIS_HOST
+              value: {{ default "" .Values.env.REDIS_HOST | quote}}
+            - name: REDIS_PORT
+              value: {{ default "" .Values.env.REDIS_PORT | quote}}
