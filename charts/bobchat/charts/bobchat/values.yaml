@@ -23,7 +23,7 @@ env:
   
 # Service
 servicePort: 80
-serviceType: "ClusterIP"
+serviceType: "LoadBalancer"
 serviceAnnotations:
   getambassador.io/config: |
     ---
