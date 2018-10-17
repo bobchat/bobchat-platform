@@ -78,6 +78,6 @@ spec:
             - name: MONGO_DB_PASSWORD
               value: {{ default "" .Values.env.MONGO_DB_PASSWORD | quote}}
             - name: REDIS_HOST
-              value: {{ default "" .Values.env.REDIS_HOST | quote}}
+              value: "{{ .Release.Name }}-redis-master.default.svc.cluster.local"
             - name: REDIS_PORT
               value: {{ default "" .Values.env.REDIS_PORT | quote}}

@@ -11,7 +11,7 @@ cpu: 50m
 memory: 256Mi
 env:
   NODE_ENV: 'production'
-  MONGO_DB_HOST: 'mongodb.default.svc.cluster.local'
+  # MONGO_DB_HOST: 'mongodb.default.svc.cluster.local'
   MONGO_DB_PORT: '27017'
   MONGO_DB_NAME: ''
   MONGO_DB_USER: ''
@@ -20,8 +20,8 @@ env:
   # MONGO_DB_NAME: 'mongo-test'
   # MONGO_DB_DATABASE: 'admin'
   # MONGO_DB_USER: 'root
-  REDIS_HOST: 'redis-master.default.svc.cluster.local'
-  REDIS_PORT: '637900'
+  # REDIS_HOST: 'redis-master.default.svc.cluster.local'
+  REDIS_PORT: '6379'
   
 # Service
 servicePort: 80
