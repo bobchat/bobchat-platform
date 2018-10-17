@@ -11,7 +11,8 @@ module.exports = function(server) {
   let io = require('socket.io')(server);
 
   io.adapter(redisAdapter({
-    host: REDIS_HOST
+    host: REDIS_HOST,
+    port: REDIS_PORT,
   }));
 
   io.on('connection', function (socket) {

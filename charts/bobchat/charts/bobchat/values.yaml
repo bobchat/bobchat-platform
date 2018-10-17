@@ -21,7 +21,7 @@ env:
   # MONGO_DB_DATABASE: 'admin'
   # MONGO_DB_USER: 'root
   REDIS_HOST: 'redis-master.default.svc.cluster.local'
-  REDIS_PORT: '6379'
+  REDIS_PORT: '637900'
   
 # Service
 servicePort: 80
