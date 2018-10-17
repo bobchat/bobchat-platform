@@ -15,7 +15,7 @@ roomRoutes.get('/list', async (req, res) => {
       rooms,
     });
   } catch (e) {
-    console.log(e);
+    console.error(e);
     res.status(500).json({
       error: e
     });
@@ -27,12 +27,11 @@ roomRoutes.get('/list/private', tokenMiddleware, async (req, res) => {
   let { _id } = req.user;
   try {
     let rooms = await roomStore.listPrivateRoomsForUser(_id);
-    console.log(rooms);
     res.status(200).json({
       rooms,
     });
   } catch (e) {
-    console.log(e);
+    console.error(e);
     res.status(500).json({
       error: e
     });
@@ -71,7 +70,7 @@ roomRoutes.post('/new', json, async (req, res) => {
     });
 
   } catch (e) {
-    console.log(e);
+    console.error(e);
     res.status(500).json({
       error: e
     });
@@ -80,7 +79,6 @@ roomRoutes.post('/new', json, async (req, res) => {
 
 roomRoutes.post('/new/private', json, async (req, res) => {
   let { senderId, senderAlias, parentRoomId } = req.body;
-  console.log(req.body);
   try {
     const room = await roomStore.createPrivateRoom(senderId, senderAlias, parentRoomId);
     res.status(200).json({

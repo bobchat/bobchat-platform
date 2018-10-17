@@ -23,7 +23,6 @@ module.exports = function(server) {
     });
 
     socket.on('message', async data => {
-      console.log(data);
       const schema = Joi.object().keys({
         content: Joi.string().min(1).max(280).required(),
         ownerId: Joi.string().alphanum().min(24).max(24).required(),

@@ -27,6 +27,7 @@ kind: Deployment
 metadata:
   name: {{ template "bobchat-platform.fullname" . }}
   labels:
+    app: bobchat-platform
     heritage: {{.Release.Service | quote }}
     release: {{.Release.Name | quote }}
     chart: "{{.Chart.Name}}-{{.Chart.Version}}"
