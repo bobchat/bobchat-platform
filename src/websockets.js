@@ -22,6 +22,11 @@ module.exports = function(server) {
       socket.join(params.roomId);
     });
 
+    socket.on('leave', params => {
+      console.log('Leave room ${params.roomId}');
+      socket.leave(params.roomId);
+    })
+
     socket.on('message', async data => {
       const schema = Joi.object().keys({
         content: Joi.string().min(1).max(280).required(),
