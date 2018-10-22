@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const circleToPolygon = require('circle-to-polygon');
 
 const messageSchema = mongoose.Schema({
   content: {

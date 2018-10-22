@@ -1,0 +1,15 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "description": "Common code for Bobchat",
+  "main": "index.js",
+  "scripts": {
+    "build": "mkdir -p .dist/js && npm run build:proto",
+    "build:proto": "pbjs -t static-module -w commonjs -o .dist/bobchat-proto.js proto/*.proto"
+  },
+  "author": "samheutmaker@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "protobufjs": "~6.8.8"
+  }
+}
