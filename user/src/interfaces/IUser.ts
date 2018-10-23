@@ -1,7 +1,7 @@
 export default interface IUser {
   deviceUniqueId?: string;
   username?: string;
-  created?: number;
+  created: number;
   phoneNumber?: string;
   phoneNumberVerifiedAt?: number;
 }

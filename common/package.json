@@ -4,12 +4,19 @@
   "description": "Common code for Bobchat",
   "main": "index.js",
   "scripts": {
-    "build": "mkdir -p .dist/js && npm run build:proto",
-    "build:proto": "pbjs -t static-module -w commonjs -o .dist/bobchat-proto.js proto/*.proto"
+    "build": "mkdir -p dist/js && npm run build:proto && npm run build:tsc",
+    "build:proto": "pbjs -t static-module -w commonjs -o dist/bobchat-proto.js proto/*.proto",
+    "build:tsc": "tsc --project ."
   },
   "author": "samheutmaker@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "jaeger-client": "^3.13.0",
+    "nats": "^1.0.1",
     "protobufjs": "~6.8.8"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.0"
   }
 }

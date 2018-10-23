@@ -10,7 +10,8 @@
     "sourceMap": true,
     // "strictNullChecks": true,
     "noUnusedLocals": true,
-    "paths": {},
+    "paths": {
+    },
     "types": [
       "node",
       "long",

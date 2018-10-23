@@ -1,0 +1,29 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "./dist/",
+    "declaration": true,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "paths": {},
+    "types": [
+      "node",
+      "long"
+    ]
+  },
+  "files": [
+    "./node_modules/@types/mocha/index.d.ts",
+    "./node_modules/@types/node/index.d.ts"
+  ],
+  "include": [
+    "service/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
