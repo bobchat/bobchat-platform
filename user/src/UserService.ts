@@ -10,6 +10,8 @@ import UserStore from './UserStore';
 import IUser  from './interfaces/IUser';
 import Tracer from 'bobchat-common/dist/Tracer';
 import { IServiceProxy, proxyProvider } from './proxyProvider';
+import { NATS_URL } from './env';
+
 const tracer = new Tracer('UserService');
 
 export default class UserService extends BaseService {
@@ -27,7 +29,7 @@ export default class UserService extends BaseService {
     });
     const service = new UserService({
       serviceName: serviceName,
-      connectionMgr: new NatsConnectionManager([<string>process.env.NATS_URL], logger, true),
+      connectionMgr: new NatsConnectionManager([<string>NATS_URL], logger, true),
       logManager: logger,
       storageManager: new UserStore(User),
     });

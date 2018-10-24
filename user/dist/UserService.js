@@ -19,6 +19,7 @@ const User_1 = require("./User");
 const UserStore_1 = require("./UserStore");
 const Tracer_1 = require("bobchat-common/dist/Tracer");
 const proxyProvider_1 = require("./proxyProvider");
+const env_1 = require("./env");
 const tracer = new Tracer_1.default('UserService');
 class UserService extends BaseService_1.default {
     constructor(opts) {
@@ -68,7 +69,7 @@ class UserService extends BaseService_1.default {
         });
         const service = new UserService({
             serviceName: serviceName,
-            connectionMgr: new NatsConnectionManager_1.default([process.env.NATS_URL], logger, true),
+            connectionMgr: new NatsConnectionManager_1.default([env_1.NATS_URL], logger, true),
             logManager: logger,
             storageManager: new UserStore_1.default(User_1.User),
         });
