@@ -1,12 +1,26 @@
 {
-  "name": "common",
+  "name": "bobchat-common",
   "version": "1.0.0",
   "description": "Common code for Bobchat",
   "main": "index.js",
   "scripts": {
     "build": "mkdir -p dist/js && npm run build:proto && npm run build:tsc",
     "build:proto": "pbjs -t static-module -w commonjs -o dist/bobchat-proto.js proto/*.proto",
-    "build:tsc": "tsc --project ."
+    "build:tsc": "tsc --project .",
+    "dev": "npm run build",
+    "start": "npm-watch dev"
+  },
+  "watch": {
+    "dev": {
+      "patterns": [
+        "proto",
+        "service",
+        "test"
+      ],
+      "quiet": false,
+      "legacyWatch": true,
+      "extensions": "ts,proto"
+    }
   },
   "author": "samheutmaker@gmail.com",
   "license": "ISC",
@@ -17,6 +31,8 @@
   },
   "devDependencies": {
     "@types/mocha": "^5.2.5",
-    "@types/node": "^10.12.0"
+    "@types/node": "^10.12.0",
+    "npm-watch": "^0.4.0",
+    "typescript": "^3.1.3"
   }
 }
