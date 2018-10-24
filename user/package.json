@@ -7,14 +7,27 @@
     "test": "test"
   },
   "scripts": {
+    "build": "npm run build:setup && npm run compile",
+    "build:setup": "cp node_modules/bobchat-common/service-build/* .",
     "compile": "tsc --project .",
-    "build:setup": "cp ../common/service-build/* .",
-    "build": "npm run build:setup && npm run compile"
+    "dev": "npm run build && node dist/index.js",
+    "start": "npm-watch dev"
+  },
+  "watch": {
+    "dev": {
+      "patterns": [
+        "src"
+      ],
+      "quiet": false,
+      "legacyWatch": true,
+      "extensions": "ts, js"
+    }
   },
   "author": "samheutmaker@gmail.com",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.2",
+    "bobchat-common": "^1.0.0",
     "jaeger-client": "^3.13.0",
     "joi": "^14.0.0",
     "jsonwebtoken": "^8.3.0",
@@ -30,6 +43,7 @@
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
     "mocha": "^5.2.0",
+    "npm-watch": "^0.4.0",
     "ts-loader": "^5.2.2",
     "tslint-config-airbnb": "^5.4.2",
     "typescript": "^3.1.3",

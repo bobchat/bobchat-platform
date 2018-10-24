@@ -1,5 +1,5 @@
-import { IConnectionManager } from './../../common/dist/interfaces';
-import * as pb from './../../common/dist/bobchat-proto';
+import { IConnectionManager } from 'bobchat-common/dist/interfaces';
+import * as pb from 'bobchat-common/dist/bobchat-proto';
 export interface IServiceProxy {
     userService: pb.UserService;
 }

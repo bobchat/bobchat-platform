@@ -4,4 +4,4 @@ export default interface IUser {
   created: number;
   phoneNumber?: string;
   phoneNumberVerifiedAt?: number;
-}
+}  

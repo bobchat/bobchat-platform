@@ -1,14 +1,14 @@
-import * as pb from '../../common/dist/bobchat-proto';
+import * as pb from 'bobchat-common/dist/bobchat-proto';
 import * as Joi from 'joi';
-import BaseService from './../../common/dist/BaseService';
-import ConsoleLogManager from './../../common/dist/ConsoleLogManager';
-import NatsConnectionManager from './../../common/dist/NatsConnectionManager';
-import PbMessageHandler from './../../common/dist/PbMessageHandler';
-import joiToErrors from './../../common/dist/joiToErrors';
+import BaseService from 'bobchat-common/dist/BaseService';
+import ConsoleLogManager from 'bobchat-common/dist/ConsoleLogManager';
+import NatsConnectionManager from 'bobchat-common/dist/NatsConnectionManager';
+import PbMessageHandler from 'bobchat-common/dist/PbMessageHandler';
+import joiToErrors from 'bobchat-common/dist/joiToErrors';
 import { User } from './User';
 import UserStore from './UserStore';
 import IUser  from './interfaces/IUser';
-import Tracer from './../../common/dist/Tracer';
+import Tracer from 'bobchat-common/dist/Tracer';
 import { IServiceProxy, proxyProvider } from './proxyProvider';
 const tracer = new Tracer('UserService');
 

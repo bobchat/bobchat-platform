@@ -1,4 +1,4 @@
-import BaseService from './../../common/dist/BaseService';
+import BaseService from 'bobchat-common/dist/BaseService';
 import { IServiceProxy } from './proxyProvider';
 export default class UserService extends BaseService {
     proxy: IServiceProxy;

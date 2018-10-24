@@ -1,5 +1,5 @@
 import IUser from './interfaces/IUser';
-import Tracer from './../../common/dist/Tracer';
+import Tracer from 'bobchat-common/dist/Tracer';
 
 const tracer = new Tracer('UserStore');
 

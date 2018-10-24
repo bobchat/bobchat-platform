@@ -1,22 +1,17 @@
 FROM node:10.11.0
 
 # make source directory
-CMD mkdir /app
+RUN mkdir /service
+
 
 # copy source code
-COPY . /app
+COPY . /service
 
 # change working directory
-WORKDIR /app
+WORKDIR /service
 
-# reduce spew
-ENV NPM_CONFIG_LOGLEVEL info
+COPY package.json package-lock.json ./
 
-# install packages
 RUN npm install
-
-# expose the port internally
-EXPOSE 3000
-
-# start the service
-ENTRYPOINT ["npm", "run", "start"]
+RUN npm run build
+CMD npm run start
