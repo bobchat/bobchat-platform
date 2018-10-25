@@ -43,7 +43,11 @@ The Supreme being of analytics
 
 #### Google Cloud Services
 #### Docker
+[Docker](https://www.docker.com/) is the industry standard in software application containerization technology. At its core, it is lightweight virtualization technology. A Docker container encapsulates a single application and its dependencies providing seperation from the operating and file systems. A container can be run nearly anywhere without having to worry about the underlying system archictecture. Docker is easy to use, has a very active community, is contributed to by some of the largest technology companies in the world, and has first-class orchestration support via Kubernetes. Each of the services in this system will run inside its own Docker container. When changes are made to a service, the service will be containerized, and uploaded to Google Cloud Registry for storage. When a container has been thoroughly tested, it will be deployed to Kubernetes via Helm. Each version of the container is kept longterm as an artifact, allowing us to rollback to specific versions of each service if nessecary. 
+
 #### Kubernetes
+
+#### Helm
 
 ### Web Client
 #### Injected Checkout Widget
