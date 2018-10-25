@@ -11,6 +11,12 @@ Services communicate internally via [NATS](https://nats.io/) and [protobuffers](
 #### External Communication
 Services communicate externally via GraphQL. In the future, an external broadcasting system will likely be implemented to provide realtime updates to live data.
 
+#### Networking
+
+#### Persistence
+
+#### Scaling
+
 
 ## System Operation
 
@@ -34,7 +40,7 @@ JWT Tokens, Possibly OIDC in the future
 
 
 ## Monitoring
-Monitoring is a multifacted problem spanning system architecture, development, and operations and is paramount in any hyperscale system. You are truly only as good as your monitoring apparatsus. Good monitoring tools allow developers and operators to gauge how the system is performing and debug issues in real time.  This systems implements several monitoring tools that provide both granular and broad views of how the system is performing. In some cases, we measure the same metrics more than once to make absolutely sure the system is performing as expected.
+Monitoring is a multifacted problem spanning system architecture, development, and operations and is paramount in any hyperscale system. You are truly only as good as your monitoring apparatus. Good monitoring tools allow developers and operators to gauge how the system is performing and debug issues in real time.  This systems implements several monitoring tools that provide both granular and broad views of how the system is performing. In some cases, we measure the same metrics more than once to make absolutely sure the system is performing as expected.
 
 #### Distributed Tracing with Jaeger
 Tracing allows developers to track a request all the way through the system from start to finish and measure how each subcomponent of the system behaves. Distributed architectures add the complexity of tracing requests between processes boundaries. To solve this, we use [Jaeger](https://www.jaegertracing.io/). Jaeger facilitates transaction monitoring, the measurement of several types of latency, and the tracking of requests between services, all in realtime. Jaeger comes with a monitoring UI to easily interpret the gathered data. The Jaeger backend will run as a service in our system and aggregate the information gathered by other services. Each service will implement Jaeger tracing protocols via the Jaeger client, which simply means that when services make or receive requests, they will include context information that will be reported to the Jaeger backend. 
@@ -52,8 +58,16 @@ ElasticSearch, Logstash, and Kibana make up the ELK stack, a solution to distrib
 [Segment](https://segment.com/) is analytics gathering platform that allows the tracking of customer actions and transportion of data to around 50 different analysis tools. Segment allows us to track a customers journey through our application, from first page load to checkout and everything in between. The promoters we work with will likely have a prefered method of analyzing customer data, and using Segment allows us to transport their users data to whichever platform they specify. We will also want to analyze user data, and Segment allows us to pick, choose, and change our analysis platform without having to worry about changing how we track user in the application. Segment does all the nessecary transformations before transporting data to an analysis tool. Segement is a granular user analytics tool.
 
 #### Google Analytics
+[Google Analytics](https://analytics.google.com/analytics)(GA) facilites the tracking of many important metrics and provides a high level view of how our application is being used. Promoters may also want to upload their own GA tracking code to track how their advertisments are performing and this is something we will support.
+
+#### Facebook Pixel
+
+
+
+
 
 
 ## Web Client
+
 #### Injected Checkout Widget
 ## Mobile Client
