@@ -49,10 +49,10 @@ ElasticSearch, Logstash, and Kibana make up the ELK stack, a solution to distrib
 ## Analytics
 
 #### Segment
-An analytics gathering platform that allows you to pipe data to 50 different analysis tools. 
+[Segment](https://segment.com/) is analytics gathering platform that allows the tracking of customer actions and transportion of data to around 50 different analysis tools. Segment allows us to track a customers journey through our application, from first page load to checkout and everything in between. The promoters we work with will likely have a prefered method of analyzing customer data, and using Segment allows us to transport their users data to whichever platform they specify. We will also want to analyze user data, and Segment allows us to pick, choose, and change our analysis platform without having to worry about changing how we track user in the application. Segment does all the nessecary transformations before transporting data to an analysis tool. Segement is a granular user analytics tool.
 
 #### Google Analytics
-The Supreme being of analytics
+
 
 ## Web Client
 #### Injected Checkout Widget
