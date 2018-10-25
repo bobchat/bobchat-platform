@@ -20,5 +20,31 @@ Tracing allows developers to track a request all the way through the system from
 #### Application Metrics with Prometheus and Grafana
 In addition to tracing, it is important to have insight into the amount of stress your system is placing on the hardware it is running on. Prometheus allows us to collect metrics on CPU usage, memory utilization and BLANK on a per container basis to ensure our hardware is application is performing correctly. Grafana is a time-series visualation tool that works with prometheus to make the gathered metrics easy to interpret. 
 
-#### Distributed logging with ElasticSearch
+#### Distributed logging with ELK
+ElasticSearch, Logstash, and Kibana make up the ELK stack, a solution to distributed log aggregration, storage, and search.
 
+
+### Security
+
+#### Internal Security
+TLS Certificates to connect to NATS server.
+#### External Security
+JWT Tokens, Possibly OIDC in the future
+
+### Analytics
+
+#### Segment
+An analytics gathering platform that allows you to pipe data to 50 different analysis tools. 
+
+#### Google Analytics
+The Supreme being of analytics
+
+### System Operation
+
+#### Google Cloud Services
+#### Docker
+#### Kubernetes
+
+### Web Client
+#### Injected Checkout Widget
+### Mobile Client
