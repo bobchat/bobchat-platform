@@ -17,10 +17,10 @@ Services communicate externally via GraphQL. In the future, an external broadcas
 Monitoring is a multifacted problem spanning system architecture, development, and operations and is paramount in any hyperscale system. You are truly only as good as your monitoring apparatsus. Good monitoring tools allow developers and operators to gauge how the system is performing and debug issues in real time.  This systems implements several monitoring tools that provide both granular and broad views of how the system is performing. In some cases, we measure the same metrics more than once to make absolutely sure the system is performing as expected.
 
 #### Distributed Tracing with Jaeger
-Tracing allows developers to track a request all the way through the system from start to finish and measure how each subcomponent of the system behaves. Distributed architectures add the complexity of tracing requests between processes boundaries. To solve this, we use Jaeger. 
+Tracing allows developers to track a request all the way through the system from start to finish and measure how each subcomponent of the system behaves. Distributed architectures add the complexity of tracing requests between processes boundaries. To solve this, we use [Jaeger](https://www.jaegertracing.io/). Jaeger facilitates transaction monitoring, the measurement of several types of latency, and the tracking of requests between services, all in realtime. Jaeger comes with a monitoring UI to easily interpret the data is gathers. The Jaeger backend will run as a service in our system and aggregate the information gathered by other services. Each service will implement Jaeger tracing protocols via the Jaeger client, which simply means that when services make or receive requests, they will include context information that will be reported to the Jaeger backend. 
 
 #### Application Metrics with Prometheus and Grafana
-In addition to tracing, it is important to have insight into the amount of stress your system is placing on the hardware it is running on. Prometheus allows us to collect metrics on CPU usage, memory utilization and BLANK on a per container basis to ensure our hardware is application is performing correctly. Grafana is a time-series visualation tool that works with prometheus to make the gathered metrics easy to interpret. 
+In addition to tracing, it is important to have insight into the amount of stress your system is placing on the hardware it is running on. [Prometheus](https://prometheus.io/) allows us to collect metrics on CPU usage, memory utilization and BLANK on a per container basis to ensure our hardware is application is performing correctly. [Grafana](https://grafana.com/) is a time-series visualation tool that works with prometheus to make the gathered metrics easy to interpret. 
 
 #### Distributed logging with ELK
 ElasticSearch, Logstash, and Kibana make up the ELK stack, a solution to distributed log aggregration, storage, and search.
@@ -50,6 +50,7 @@ The Supreme being of analytics
 #### Kubernetes
 
 #### Helm
+[Helm](https://helm.sh/) is Kubernetes package manager. Helm facilitates the packaging of application components into Helm Charts, which can be deployed to Kubernetes with a single command. A Helm Chart contains everything Kubernetes needs to run a single service, including information on the Docker container to run, how it should be run, and what other services are relied on. Each service will have its own Helm Chart, and because Helm Charts are composable, it is possible to deploy our entire system with a single command.
 
 ## Web Client
 #### Injected Checkout Widget
