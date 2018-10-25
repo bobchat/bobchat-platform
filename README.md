@@ -11,6 +11,8 @@ Services communicate internally via [NATS](https://nats.io/) and [protobuffers](
 ### External communication
 Services communicate externally via GraphQL. In the future, an external broadcasting system will likely be implemented to provide realtime updates to live data.
 
+
+
 ## Monitoring
 Monitoring is a multifacted problem spanning system architecture, development, and operations and is paramount in any hyperscale system. You are truly only as good as your monitoring apparatsus. Good monitoring tools allow developers and operators to gauge how the system is performing and debug issues in real time.  This systems implements several monitoring tools that provide both granular and broad views of how the system is performing. In some cases, we measure the same metrics more than once to make absolutely sure the system is performing as expected.
 
