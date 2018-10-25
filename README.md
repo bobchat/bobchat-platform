@@ -11,7 +11,7 @@ Services communicate internally via [NATS](https://nats.io/) and [protobuffers](
 ### External communication
 Services communicate externally via GraphQL. In the future, an external broadcasting system will likely be implemented to provide realtime updates to live data.
 
-### Monitoring
+## Monitoring
 Monitoring is a multifacted problem spanning system architecture, development, and operations and is paramount in any hyperscale system. You are truly only as good as your monitoring apparatsus. Good monitoring tools allow developers and operators to gauge how the system is performing and debug issues in real time.  This systems implements several monitoring tools that provide both granular and broad views of how the system is performing. In some cases, we measure the same metrics more than once to make absolutely sure the system is performing as expected.
 
 #### Distributed Tracing with Jaeger
@@ -24,14 +24,14 @@ In addition to tracing, it is important to have insight into the amount of stres
 ElasticSearch, Logstash, and Kibana make up the ELK stack, a solution to distributed log aggregration, storage, and search.
 
 
-### Security
+## Security
 
 #### Internal Security
 TLS Certificates to connect to NATS server.
 #### External Security
 JWT Tokens, Possibly OIDC in the future
 
-### Analytics
+## Analytics
 
 #### Segment
 An analytics gathering platform that allows you to pipe data to 50 different analysis tools. 
@@ -39,7 +39,7 @@ An analytics gathering platform that allows you to pipe data to 50 different ana
 #### Google Analytics
 The Supreme being of analytics
 
-### System Operation
+## System Operation
 
 #### Google Cloud Services
 #### Docker
@@ -49,6 +49,6 @@ The Supreme being of analytics
 
 #### Helm
 
-### Web Client
+## Web Client
 #### Injected Checkout Widget
-### Mobile Client
+## Mobile Client
