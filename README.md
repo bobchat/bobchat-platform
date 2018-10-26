@@ -9,7 +9,7 @@ Services communicate internally via [NATS](https://nats.io/) and [protobuffers](
 Services communicate externally via GraphQL. This is the client application's entrypoint into the system. GraphQL solves several common problems with REST API's including [overfetching](https://stackoverflow.com/questions/44564905/what-is-over-fetching-or-under-fetching) and underfetching, the [N+1 problem](https://restfulapi.net/rest-api-n-1-problem/), and also provides a declarative [type system](https://graphql.org/learn/schema/) which simplifies writing queries. GraphQL will run as a service in the system. When a request is received, GraphQL will attempt to resolve the request based on a set of rules that define the availabe queries and by which service they can be resolved. This involves dispatching a request to the specified service, modifying the results to match the requested format, and sending the results back to the client. An external broadcasting system will likely be implemented in the future to provide realtime updates to live data.
 
 #### Networking
-Will in a VPC with limited and tightly controlled ingress.
+Will be in a VPC with limited and tightly controlled ingress.
 
 #### Persistence
 Using MongoDB, will add sharding in the future. Must consider security, insecure with default configuration.
@@ -35,7 +35,7 @@ This system will run on Google Cloud Platform and use many Google Cloud offering
 ## Security
 
 #### Internal Security
-TLS Certificates to connect to NATS server.
+TLS Certificates to connect to NATS server. Limited access to VPC. May use Vault for secret storage.
 
 #### External Security
 JWT Tokens, Possibly OIDC in the future
