@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "bobchat-platform.fullname" . }}
+  name: {{ template "user.fullname" . }}
   labels:
     heritage: {{.Release.Service | quote }}
     release: {{.Release.Name | quote }}
@@ -10,7 +10,7 @@ metadata:
 {{- if .Values.serviceAnnotations}}
   annotations:
 {{ toYaml .Values.serviceAnnotations | indent 4 }}
-      service: {{ .Release.Name }}-bobchat-platform.default:80
+      service: {{ .Release.Name }}-user.default:80
 {{- end}}
 spec:
   ports:
@@ -25,9 +25,9 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{ template "bobchat-platform.fullname" . }}
+  name: {{ template "user.fullname" . }}
   labels:
-    app: bobchat-platform
+    app: user
     heritage: {{.Release.Service | quote }}
     release: {{.Release.Name | quote }}
     chart: "{{.Chart.Name}}-{{.Chart.Version}}"

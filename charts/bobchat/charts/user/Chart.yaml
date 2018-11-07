@@ -1,9 +1,9 @@
-name: bobchat-platform
+name: user
 home: https://github.com/bobchat/bobchat-platform
 version: 0.1.0
-description: Bobchat Platform
+description: User Service
 sources:
   - https://github.com/bobchat/bobchat-platform
 maintainers:
   - name: Sam Heutmaker
-    email: sam.heutmaker@dfsco.com
+    email: samheutmaker@gmail.com

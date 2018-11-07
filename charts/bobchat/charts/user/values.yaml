@@ -1,10 +1,10 @@
 # Shared
-name: "bobchat-platform"
+name: "user"
 containerPort: 8080
-component: "bobchat-platform"
+component: "user"
 # Deployment
-image: "gcr.io/bobchat-app/bobchat-platform"
-containerName: "bobchat-platform"
+image: "gcr.io/bobchat-app/user"
+containerName: "user"
 imagePullPolicy: "Always"
 replicas: 3
 cpu: 50m
@@ -25,13 +25,13 @@ env:
   
 # Service
 servicePort: 80
-serviceType: "LoadBalancer"
-serviceAnnotations:
-  getambassador.io/config: |
-    ---
-    apiVersion: ambassador/v0
-    kind: Mapping
-    host: www-beta.bobchatapp.com
-    name: bobchat-platform
-    prefix: /
-    timeout_ms: 20000
+serviceType: "ClusterIP"
+# serviceAnnotations:
+#   getambassador.io/config: |
+#     ---
+#     apiVersion: ambassador/v0
+#     kind: Mapping
+#     host: www-beta.bobchatapp.com
+#     name: bobchat-platform
+#     prefix: /
+#     timeout_ms: 20000
