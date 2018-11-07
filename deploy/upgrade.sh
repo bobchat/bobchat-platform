@@ -5,7 +5,7 @@ if [ -z "$1" ]
 then
   1=$BOBCHAT_LAST_DEPLOYMENT
 else 
-  BOBCHAT_LAST_DEPLOYMENT=$1
+  export BOBCHAT_LAST_DEPLOYMENT=$1
 fi
 
 helm upgrade --install bobchat-platform $CHARTS --set global.imageTag=$1 --namespace=default --force
