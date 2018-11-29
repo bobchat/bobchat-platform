@@ -78,5 +78,5 @@ spec:
               value: {{ default "" .Values.env.MONGO_DB_USER | quote}}
             - name: MONGO_DB_PASSWORD
               value: {{ default "" .Values.env.MONGO_DB_PASSWORD | quote}}
-            - name: NATS_HOST
-              value: "{{ .Release.Name }}-nats-client.default.svc.cluster.local"
+            - name: NATS_URL
+              value: "nats://{{ .Release.Name }}-nats-client.default.svc.cluster.local:4222"
